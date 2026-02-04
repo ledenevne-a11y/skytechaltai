@@ -1,1 +1,901 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>СкайТехАлтай — агродроны, обучение, сервис, тест-центр</title>
+  <meta name="description" content="СкайТехАлтай: авиа-работы агродронами, обучение и допуск пилотов Heavy >30 кг, сервис/ЗИП, независимый полигон и Field Passport."/>
+  <meta name="theme-color" content="#0b1220"/>
 
+  <!-- OpenGraph -->
+  <meta property="og:title" content="СкайТехАлтай — инфраструктура БАС для АПК"/>
+  <meta property="og:description" content="Работы • Обучение Heavy • Сервис/ЗИП • Тест-центр • Field Passport"/>
+  <meta property="og:type" content="website"/>
+
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f1a33; --muted:#98a2b3; --text:#e6eaf2;
+      --accent:#7c5cff; --accent2:#22c55e; --warn:#fbbf24; --line:rgba(255,255,255,.10);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(124,92,255,.18), transparent 60%),
+                  radial-gradient(1200px 600px at 90% 20%, rgba(34,197,94,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1140px; margin:0 auto; padding:28px 18px 80px;}
+    .topbar{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55); border-bottom:1px solid var(--line);
+    }
+    .topbar .wrap{padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(34,197,94,.85));
+      box-shadow: 0 10px 30px rgba(124,92,255,.20);
+      position:relative;
+    }
+    .logo:before{
+      content:""; position:absolute; inset:9px 7px 11px 7px; border:1px solid rgba(255,255,255,.55);
+      border-radius:9px;
+    }
+    .nav{display:flex; gap:14px; flex-wrap:wrap; font-size:14px; color:rgba(230,234,242,.85)}
+    .nav a{padding:8px 10px; border-radius:12px}
+    .nav a:hover{background: rgba(255,255,255,.06)}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px; border:1px solid var(--line);
+      background: rgba(255,255,255,.06); color:var(--text);
+      font-weight:750; font-size:14px; cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); transition:.15s ease}
+    .btn.primary{
+      border:0;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(124,92,255,.65));
+      box-shadow: 0 18px 50px rgba(124,92,255,.22);
+    }
+    .btn.green{
+      border:0;
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.65));
+      box-shadow: 0 18px 50px rgba(34,197,94,.18);
+    }
+    .btn.ghost{
+      background: rgba(11,18,32,.20);
+    }
+
+    /* HERO */
+    .hero{padding:46px 0 10px;}
+    .grid2{display:grid; grid-template-columns: 1.15fr .85fr; gap:18px}
+    @media (max-width: 920px){ .grid2{grid-template-columns:1fr; } }
+    h1{margin:0 0 10px; font-size:44px; line-height:1.05; letter-spacing:-.6px}
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .sub{color:rgba(230,234,242,.82); font-size:16px; margin:0 0 18px; max-width:62ch}
+    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 22px}
+    .pill{
+      padding:9px 12px; border-radius:999px; font-size:13px;
+      border:1px solid var(--line); background: rgba(255,255,255,.05);
+      color:rgba(230,234,242,.86)
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(15,26,51,.92), rgba(15,26,51,.66));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroCard{padding:18px}
+    .heroCard h3{margin:0 0 8px; font-size:16px}
+    .heroCard p{margin:0 0 14px; color:rgba(230,234,242,.78); font-size:14px}
+    .statGrid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+    @media (max-width:520px){ .statGrid{grid-template-columns:1fr} }
+    .stat{
+      padding:12px; border-radius:14px; border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .stat b{display:block; font-size:16px}
+    .stat span{display:block; font-size:12px; color:rgba(230,234,242,.70); margin-top:4px}
+
+    /* Sections */
+    section{padding:44px 0 0}
+    .sectionTitle{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:14px}
+    h2{margin:0; font-size:26px; letter-spacing:-.3px}
+    .hint{color:rgba(230,234,242,.62); font-size:14px; max-width:68ch}
+    .cards3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    @media (max-width:920px){ .cards3{grid-template-columns:1fr} }
+    .cards2{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    @media (max-width:920px){ .cards2{grid-template-columns:1fr} }
+    .c{padding:16px}
+    .c h3{margin:0 0 8px; font-size:16px}
+    .c p{margin:0; color:rgba(230,234,242,.78); font-size:14px}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; padding:7px 10px; border-radius:999px;
+      border:1px solid var(--line); background: rgba(255,255,255,.04);
+      color:rgba(230,234,242,.74); margin:10px 0 0;
+    }
+    .tag.warn{border-color: rgba(251,191,36,.25); background: rgba(251,191,36,.08)}
+    .checklist{margin:12px 0 0; padding:0; list-style:none}
+    .checklist li{
+      margin:8px 0; padding-left:22px; position:relative; color:rgba(230,234,242,.80); font-size:14px
+    }
+    .checklist li:before{
+      content:"✓"; position:absolute; left:0; top:0; color:rgba(34,197,94,.95);
+      font-weight:900;
+    }
+    .divider{margin-top:12px; border-top:1px solid var(--line); padding-top:12px}
+
+    /* Steps */
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+    @media (max-width:920px){ .steps{grid-template-columns:1fr} }
+    .step{padding:16px}
+    .num{
+      width:34px; height:34px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+      background: rgba(124,92,255,.18); border:1px solid rgba(124,92,255,.30);
+      font-weight:900; margin-bottom:10px
+    }
+    .step h3{margin:0 0 6px; font-size:16px}
+    .step p{margin:0; font-size:14px; color:rgba(230,234,242,.78)}
+
+    /* Packages */
+    .pkgTop{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .priceLine{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+    .priceBig{font-size:22px; font-weight:900; letter-spacing:-.2px}
+    .muted{color:rgba(230,234,242,.62)}
+    .small{font-size:13px}
+    .pkg{padding:18px}
+    .pkg ul{margin:12px 0 0; padding:0; list-style:none}
+    .pkg li{margin:8px 0; color:rgba(230,234,242,.80); font-size:14px}
+    .pkg li:before{content:"• "; color:rgba(124,92,255,.9); font-weight:900}
+
+    /* Social proof */
+    .quote{
+      padding:16px; border-left:3px solid rgba(124,92,255,.65);
+      background: rgba(255,255,255,.04); border-radius:16px; border:1px solid var(--line)
+    }
+    .quote b{display:block; margin-bottom:6px}
+    .quote span{display:block; color:rgba(230,234,242,.72); font-size:13px; margin-top:8px}
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line); border-radius:16px; padding:14px 14px;
+      background: rgba(255,255,255,.04);
+      margin:10px 0;
+    }
+    summary{cursor:pointer; font-weight:800}
+    details p{margin:10px 0 0; color:rgba(230,234,242,.78); font-size:14px}
+
+    /* Lead form */
+    .footGrid{display:grid; grid-template-columns:1.2fr .8fr; gap:12px}
+    @media (max-width:920px){ .footGrid{grid-template-columns:1fr} }
+    input, textarea{
+      width:100%; padding:12px 12px; border-radius:14px; outline:none;
+      border:1px solid var(--line); background: rgba(11,18,32,.35); color:var(--text);
+      font-size:14px;
+    }
+    textarea{min-height:96px; resize:vertical}
+    .form{display:grid; gap:10px; margin-top:10px}
+    .tiny{font-size:12px; color:rgba(230,234,242,.55); margin-top:10px}
+    .toast{
+      display:none; margin-top:10px; padding:10px 12px; border-radius:14px;
+      border:1px solid var(--line); background: rgba(34,197,94,.10);
+      color:rgba(230,234,242,.90); font-size:13px;
+    }
+    .toast.err{background: rgba(239,68,68,.10)}
+    .loader{
+      width:14px; height:14px; border-radius:50%;
+      border:2px solid rgba(255,255,255,.25);
+      border-top-color: rgba(255,255,255,.85);
+      display:none;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Footer */
+    .footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); color:rgba(230,234,242,.70)}
+  </style>
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px">СкайТехАлтай</div>
+          <div style="font-size:12px; color:rgba(230,234,242,.62)">Инфраструктура БАС для АПК • Алтай + Сибирь</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Навигация">
+        <a href="#services">Что делаем</a>
+        <a href="#packages">Пакеты</a>
+        <a href="#compliance">Безопасность</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#process">Процесс</a>
+        <a href="#faq">FAQ</a>
+        <a href="#lead">Заявка</a>
+      </nav>
+
+      <div class="ctaRow">
+        <a class="btn" href="https://t.me/agrodronaltai" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn primary" href="#lead">Оставить заявку</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="grid2">
+        <div>
+          <h1>Агродроны, обучение и сервис —<br/>не “магазин”, а инфраструктура рынка</h1>
+          <p class="sub">
+            Мы строим региональный хаб БАС для АПК: выполняем авиа-работы, готовим пилотов (включая Heavy &gt;30 кг),
+            разворачиваем сервис/ЗИП и независимый тест-полигон. Плюс: “Паспорт поля” и данные на годы — чтобы решения были не “на глаз”.
+          </p>
+
+          <div class="pillRow">
+            <span class="pill">Алтайский край • Сибирь</span>
+            <span class="pill">Heavy контур &gt;30 кг</span>
+            <span class="pill">Сервис + ЗИП + SLA</span>
+            <span class="pill">Полевой протокол и отчётность</span>
+            <span class="pill">Field Passport / Field OS</span>
+          </div>
+
+          <div class="ctaRow" style="justify-content:flex-start">
+            <a class="btn green" href="#packages">Выбрать пакет</a>
+            <a class="btn ghost" href="#compliance">Как снижаем риски</a>
+          </div>
+
+          <p class="tiny">
+            Да, это “жёсткая” позиция: железо можно купить, а вот кадры/безопасность/сервис — это где теряют сезон и деньги.
+            Мы играем туда.
+          </p>
+        </div>
+
+        <aside class="card heroCard">
+          <h3>Коротко: что вы получаете</h3>
+          <p>Прозрачный процесс, протоколы, практику и сервис. Без сказок, с контролем рисков.</p>
+
+          <div class="statGrid">
+            <div class="stat">
+              <b>Авиа-работы</b>
+              <span>обработки, десикация, точные задания</span>
+            </div>
+            <div class="stat">
+              <b>Обучение</b>
+              <span>практика, допуск, безопасность</span>
+            </div>
+            <div class="stat">
+              <b>Сервис</b>
+              <span>ЗИП, ремонт, регламенты</span>
+            </div>
+          </div>
+
+          <ul class="checklist">
+            <li>Задача → план → выполнение → отчёт/акт</li>
+            <li>Снижение риска: пилот/техника/химия/соседи</li>
+            <li>История по полям: “Паспорт поля”</li>
+          </ul>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px">
+            <a class="btn primary" href="#lead">Связаться</a>
+            <a class="btn" href="#cases">Посмотреть кейсы</a>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="sectionTitle">
+        <h2>Что мы делаем</h2>
+        <div class="hint">4 продукта, которые закрывают рынок: работы → кадры → сервис → доверие через тест-центр.</div>
+      </div>
+
+      <div class="cards3">
+        <div class="card c">
+          <h3>1) Авиа-работы агродроном</h3>
+          <p>Внесение СЗР/удобрений по регламенту. Закрываем окно погоды, работаем по чек-листам безопасности и отчётности.</p>
+          <div class="tag">Фокус: качество и повторяемость</div>
+          <ul class="checklist">
+            <li>План-график работ и партийность</li>
+            <li>Фото/видео протокол, журналы</li>
+            <li>Логистика и минимальный выезд</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>2) Обучение пилотов + допуск (Heavy)</h3>
+          <p>Не “корочки ради корочек”. Практика + сценарии ошибок + ответственность. Чтобы пилоту реально доверяли технику.</p>
+          <div class="tag">Heavy &gt;30 кг • теория + практика</div>
+          <ul class="checklist">
+            <li>Starter / Pro / Corporate треки</li>
+            <li>Переаттестация и допуск</li>
+            <li>SOP, безопасность, телеметрия</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>3) Сервис и ЗИП</h3>
+          <p>Сервис решает сезон. Склад ЗИП, регламенты, SLA, ремонт и подготовка техники до старта работ.</p>
+          <div class="tag">SLA по ЗИП • регламент хранения/зарядки</div>
+          <ul class="checklist">
+            <li>Диагностика и ТО</li>
+            <li>Запчасти/расходники</li>
+            <li>Сезонная готовность парка</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cards3" style="margin-top:12px">
+        <div class="card c">
+          <h3>4) Полигон / независимый тест-центр</h3>
+          <p>Сравниваем агродроны по единой методике: производительность, качество распыла, стабильность, сервис.</p>
+          <div class="tag">Протоколы + видео + рейтинги</div>
+          <ul class="checklist">
+            <li>Демо-дни для фермеров</li>
+            <li>Испытания по стандарту</li>
+            <li>Рейтинг пилотов и допуск</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>Field Passport / “Паспорт поля”</h3>
+          <p>История полей на годы: карты, агрохимия, операции, результаты. Данные превращаются в экономику.</p>
+          <div class="tag">Данные → решения → результат</div>
+          <ul class="checklist">
+            <li>Журнал “что/когда/чем/норма/условия”</li>
+            <li>Хранилище карт и отчётов</li>
+            <li>Подготовка к сезону по фактам</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>Двухконтурная линейка</h3>
+          <p>Комплаенс/документы + коммерция/инновации с сильной постпродажкой. Баланс, который живёт в реальности.</p>
+          <div class="tag">Здравый баланс</div>
+          <ul class="checklist">
+            <li>Легализация и учёт</li>
+            <li>Долгая эксплуатация</li>
+            <li>Снижение рисков</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages">
+      <div class="sectionTitle">
+        <h2>Пакеты</h2>
+        <div class="hint">Чтобы не было “давайте созвонимся и всё размоем”. Вот структура, в которой удобно покупать.</div>
+      </div>
+
+      <div class="cards3">
+        <div class="card pkg">
+          <div class="pkgTop">
+            <h3 style="margin:0">Works</h3>
+            <span class="tag">Авиа-работы</span>
+          </div>
+          <div class="priceLine">
+            <div class="priceBig">от 1 100 ₽/га</div>
+            <div class="muted small">(база без химии, зависит от логистики/партии)</div>
+          </div>
+          <ul>
+            <li>План-график и партиями (чтобы качество было под контролем)</li>
+            <li>Протокол выполнения + акт + фиксация</li>
+            <li>Контроль рисков: ветер, соседние поля, ульи, зоны</li>
+          </ul>
+          <div class="divider" style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn green" href="#lead" data-preset="Works">Запросить расчёт</a>
+            <a class="btn" href="#process">Как работаем</a>
+          </div>
+        </div>
+
+        <div class="card pkg">
+          <div class="pkgTop">
+            <h3 style="margin:0">Training</h3>
+            <span class="tag">Обучение</span>
+          </div>
+          <div class="priceLine">
+            <div class="priceBig">Starter / Pro / Corporate</div>
+            <div class="muted small">(heavy &gt;30 кг — отдельный контур)</div>
+          </div>
+          <ul>
+            <li>Практика + сценарии ошибок + ответственность</li>
+            <li>SOP, безопасность, телеметрия, подготовка к допуску</li>
+            <li>Переаттестация, дисциплина и стандарты</li>
+          </ul>
+          <div class="divider" style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="#lead" data-preset="Training">Запросить программу</a>
+            <a class="btn" href="#compliance">Как снижаем риски</a>
+          </div>
+        </div>
+
+        <div class="card pkg">
+          <div class="pkgTop">
+            <h3 style="margin:0">Service</h3>
+            <span class="tag">Сервис/ЗИП</span>
+          </div>
+          <div class="priceLine">
+            <div class="priceBig">SLA + склад</div>
+            <div class="muted small">(под ваш парк/задачи)</div>
+          </div>
+          <ul>
+            <li>Регламент ТО, хранение/зарядка, сезонная готовность</li>
+            <li>Склад ЗИП (минимум на сезон) + сроки поставки</li>
+            <li>Ремонт/диагностика и выезды</li>
+          </ul>
+          <div class="divider" style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn green" href="#lead" data-preset="Service">Запросить SLA</a>
+            <a class="btn" href="#cases">Посмотреть кейсы</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards2" style="margin-top:12px">
+        <div class="card pkg">
+          <div class="pkgTop">
+            <h3 style="margin:0">Range</h3>
+            <span class="tag">Полигон/тест-центр</span>
+          </div>
+          <div class="priceLine">
+            <div class="priceBig">Тест-пакеты</div>
+            <div class="muted small">(демо-день / сравнение / протокол)</div>
+          </div>
+          <ul>
+            <li>Единая методика тестов (качество распыла, стабильность, скорость)</li>
+            <li>Видеопротоколы и честные сравнения</li>
+            <li>Демо-дни для фермеров и производителей</li>
+          </ul>
+          <div class="divider" style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="#lead" data-preset="Range">Запросить тест</a>
+            <a class="btn" href="#faq">FAQ</a>
+          </div>
+        </div>
+
+        <div class="card pkg">
+          <div class="pkgTop">
+            <h3 style="margin:0">Field OS</h3>
+            <span class="tag warn">скоро</span>
+          </div>
+          <div class="priceLine">
+            <div class="priceBig">Паспорт поля + данные</div>
+            <div class="muted small">(с подпиской, позже)</div>
+          </div>
+          <ul>
+            <li>История операций и отчётов по полям</li>
+            <li>Карты/агрохимия/операции на годы</li>
+            <li>Дальше: аналитика и сравнение сезонов</li>
+          </ul>
+          <div class="divider" style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn" href="#lead" data-preset="Field OS">Встать в лист ожидания</a>
+            <a class="btn" href="#cases">Зачем это</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPLIANCE / SAFETY -->
+    <section id="compliance">
+      <div class="sectionTitle">
+        <h2>Безопасность и комплаенс</h2>
+        <div class="hint">Мы не торгуем “полётом”. Мы торгуем безопасным результатом: пилот/техника/химия/соседи/документы.</div>
+      </div>
+
+      <div class="cards3">
+        <div class="card c">
+          <h3>Риск пилота</h3>
+          <p>Главная причина потерь — “человек”. Поэтому обучение = практика, дисциплина и контроль сценариев ошибок.</p>
+          <ul class="checklist">
+            <li>Сценарии аварий и “что делать”</li>
+            <li>Чек-листы перед вылетом</li>
+            <li>Рейтинг пилотов как допуск</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>Риск техники</h3>
+          <p>Сервис и ЗИП — это “антипростой”. Мы строим сезонную готовность, а не “ремонт когда сломалось”.</p>
+          <ul class="checklist">
+            <li>ТО до сезона</li>
+            <li>Склад расходников/узлов</li>
+            <li>Регламент зарядки/хранения</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>Риск химии и соседей</h3>
+          <p>Дрифт, ульи, соседние поля — это реальная ответственность. Работаем через план и протоколы условий.</p>
+          <ul class="checklist">
+            <li>Окна погоды и ограничения</li>
+            <li>Буферные зоны и коммуникация</li>
+            <li>Фиксация и отчётность</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cards2" style="margin-top:12px">
+        <div class="card c">
+          <h3>Документы и прозрачность</h3>
+          <p>Без бумажки рынок умирает в споре. Мы работаем так, чтобы фермер мог “показать результат” и закрыть вопросы.</p>
+          <ul class="checklist">
+            <li>Акт + протокол выполнения</li>
+            <li>Фото/видео фиксация</li>
+            <li>Журналы и история работ</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>Страхование (в работе)</h3>
+          <p>Это отдельный слой защиты: ответственность, имущество, авиа-работы. Делаем RFQ/матрицу сравнения, чтобы не купить “пустышку”.</p>
+          <ul class="checklist">
+            <li>Пакеты A/B/C (от базового до расширенного)</li>
+            <li>Скоринг предложений</li>
+            <li>Красные флаги по исключениям</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES / PROOF -->
+    <section id="cases">
+      <div class="sectionTitle">
+        <h2>Кейсы и цифры</h2>
+        <div class="hint">Сейчас это стартовая витрина (под запуск). По мере сезона сюда добавляются реальные кейсы с фото/актами.</div>
+      </div>
+
+      <div class="cards3">
+        <div class="card c">
+          <h3>Кейс №1: “Окно погоды — спасли сроки”</h3>
+          <p>Когда трактор не заходит, а окно 1–2 дня. Дрон закрывает задачу без месива и простоя.</p>
+          <div class="tag">почему важно: скорость = урожай</div>
+          <ul class="checklist">
+            <li>Партии работ + контроль качества</li>
+            <li>Протокол выполнения</li>
+            <li>Снижение риска “сорвали сроки”</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>Кейс №2: “Купили дрон — не вывезли эксплуатацию”</h3>
+          <p>Классика: железо есть, а результата нет. Мы заходим как внешний оператор на их технике.</p>
+          <div class="tag">почему важно: выкупили риск пилота</div>
+          <ul class="checklist">
+            <li>Работа на оборудовании клиента</li>
+            <li>Регламенты, безопасность, отчёт</li>
+            <li>Параллельно — обучение их сотрудника</li>
+          </ul>
+        </div>
+
+        <div class="card c">
+          <h3>Кейс №3: “Учить не ради бумажки”</h3>
+          <p>Пилот, которому доверяют технику. Практика, ошибки, ответственность — чтобы не “разбить 5 млн”.</p>
+          <div class="tag">почему важно: доверие фермеров</div>
+          <ul class="checklist">
+            <li>Симулятор → практика → экзамен</li>
+            <li>SOP и чек-листы</li>
+            <li>Рейтинг пилота как допуск</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cards2" style="margin-top:12px">
+        <div class="quote">
+          <b>“Мы не продаём полёт. Мы продаём безопасный результат.”</b>
+          <div class="muted">Это позиционирование экономит нервы, деньги и сезон. Точка.</div>
+          <span>— СкайТехАлтай</span>
+        </div>
+
+        <div class="quote">
+          <b>“Если сервис не держит SLA — никакая ‘топовая модель’ не спасёт.”</b>
+          <div class="muted">Поэтому ЗИП и регламенты — не доп.опция, а база.</div>
+          <span>— подход к сезону</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="sectionTitle">
+        <h2>Как мы работаем</h2>
+        <div class="hint">Просто и прозрачно: быстро считаем, быстро делаем, фиксируем и оставляем историю.</div>
+      </div>
+
+      <div class="steps">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3>Бриф</h3>
+          <p>Культура, площадь, цель, сроки, район, ограничения (ветер/ульи/соседи), партия работ.</p>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3>План и смета</h3>
+          <p>График партиями, логистика, риски, требования к воде/препаратам, формат отчёта/акта.</p>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3>Выполнение</h3>
+          <p>Чек-листы, безопасная зона, выполнение по заданию, фиксация (фото/видео/журналы).</p>
+        </div>
+        <div class="card step">
+          <div class="num">4</div>
+          <h3>Отчёт + Паспорт поля</h3>
+          <p>Акт/протокол. Данные — в “Паспорт поля”, чтобы следующий сезон был точнее и дешевле.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEAD FORM -->
+    <section id="lead">
+      <div class="sectionTitle">
+        <h2>Оставить заявку</h2>
+        <div class="hint">Заполни 30 секунд — заявка прилетит в Telegram. Если Telegram не настроен, откроется email.</div>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <div class="footGrid">
+          <div>
+            <div class="small">
+              <b>Что указать:</b> культура, площадь (га), цель (работы/обучение/сервис/полигон), желаемые даты, район,
+              есть ли вода/препараты, средняя партия, контакт.
+            </div>
+
+            <form class="form" id="leadForm">
+              <input name="name" placeholder="Имя" required />
+              <input name="phone" placeholder="Телефон / WhatsApp" required />
+              <input name="region" placeholder="Район / населённый пункт" />
+              <textarea name="task" placeholder="Задача: что нужно (например: ‘десикация 4000 га’, ‘обучение heavy’, ‘SLA по ЗИП’)" required></textarea>
+
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+                <button class="btn green" type="submit">
+                  <span class="loader" id="loader"></span>
+                  Отправить в Telegram
+                </button>
+                <a class="btn" id="emailFallback" href="#">Отправить на email</a>
+              </div>
+
+              <div class="toast" id="okToast">Готово. Заявка улетела в Telegram ✅</div>
+              <div class="toast err" id="errToast">Не удалось отправить в Telegram. Открыл email как запасной вариант.</div>
+
+              <div class="tiny">
+                Нажимая “Отправить”, вы соглашаетесь на связь по указанным контактам.
+                Политику/оферту добавим на сайт.
+              </div>
+            </form>
+          </div>
+
+          <div>
+            <div class="small"><b>Быстрый контакт</b></div>
+            <div class="tiny" style="margin-top:10px">Телефон</div>
+            <div style="font-weight:900"><a href="tel:+79130925552">+7 913 092-55-52</a></div>
+
+            <div class="tiny" style="margin-top:10px">Telegram</div>
+            <div style="font-weight:900"><a href="https://t.me/agrodronaltai" target="_blank" rel="noopener">@agrodronaltai</a></div>
+
+            <div class="tiny" style="margin-top:10px">Email</div>
+            <div style="font-weight:900"><a href="mailto:Ledenevne@gmail.com">Ledenevne@gmail.com</a></div>
+
+            <div class="tiny" style="margin-top:10px">География</div>
+            <div style="font-weight:900">Алтайский край • Сибирь</div>
+
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn primary" href="#top">Наверх</a>
+              <a class="btn" href="#faq">FAQ</a>
+            </div>
+
+            <div class="tiny" style="margin-top:14px">
+              Подключим метрики и трекинг конверсий, когда определим домен.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="sectionTitle">
+        <h2>FAQ</h2>
+        <div class="hint">Нормальные ответы, без “маркетингового тумана”.</div>
+      </div>
+
+      <details>
+        <summary>Вы продаёте дроны или оказываете услуги?</summary>
+        <p>Мы строим хаб: услуги + обучение + сервис + тест-центр. Продажи техники возможны как часть экосистемы, но ядро — инфраструктура и контроль качества.</p>
+      </details>
+
+      <details>
+        <summary>Почему вы так упираете в обучение?</summary>
+        <p>Потому что железо купить можно, а вот кадры и практика — дефицит. И именно там рождаются аварии, простои и конфликтные истории.</p>
+      </details>
+
+      <details>
+        <summary>Можно ли сделать сезон “под ключ”?</summary>
+        <p>Да: план-график, партийность, прозрачная оплата, протоколы и отчётность. И накопление истории по полям.</p>
+      </details>
+
+      <details>
+        <summary>Работаете ли вы, если у нас уже есть агродрон?</summary>
+        <p>Да. Отдельная модель: вы даёте технику, мы — внешний оператор с регламентами, безопасностью и результатом. Параллельно можем обучить вашего сотрудника.</p>
+      </details>
+
+      <details>
+        <summary>Что по документам и отчётам?</summary>
+        <p>Зависит от задачи: акт/протокол, фиксация, журналы. Мы за стандартизацию — чтобы было что показывать, сравнивать и защищать.</p>
+      </details>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contacts">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+        <div>
+          <div style="font-weight:900; font-size:14px">СкайТехАлтай</div>
+          <div class="small muted">Инфраструктура БАС для АПК: работы • обучение heavy • сервис/ЗИП • тест-центр • Field Passport.</div>
+          <div class="tiny">© <span id="y"></span> СкайТехАлтай</div>
+        </div>
+        <div class="small" style="text-align:right">
+          <div class="muted">Контакты:</div>
+          <div><a href="tel:+79130925552">+7 913 092-55-52</a></div>
+          <div><a href="https://t.me/agrodronaltai" target="_blank" rel="noopener">t.me/agrodronaltai</a></div>
+          <div><a href="mailto:Ledenevne@gmail.com">Ledenevne@gmail.com</a></div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // ====== Настройки (ЗАПОЛНИТЬ) ======
+    // 1) Создай бота в @BotFather, получи токен.
+    // 2) Узнай chat_id: проще всего — написать боту в личку и дернуть getUpdates.
+    //    Или добавить бота в группу и взять chat_id группы.
+    const TELEGRAM_BOT_TOKEN = "PASTE_YOUR_BOT_TOKEN_HERE";
+    const TELEGRAM_CHAT_ID   = "PASTE_YOUR_CHAT_ID_HERE"; // пример: 123456789 или -100xxxxxxxxxx
+
+    const EMAIL_TO = "Ledenevne@gmail.com";
+
+    // ====== Утилиты ======
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function $(id){ return document.getElementById(id); }
+
+    // preset from package buttons
+    document.querySelectorAll('[data-preset]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const preset = btn.getAttribute('data-preset');
+        const task = document.querySelector('textarea[name="task"]');
+        if(task && !task.value.trim()){
+          task.value = `Пакет: ${preset}\n\nКультура/площадь/сроки/район:\n— \n\nКомментарий:\n— `;
+        }
+      });
+    });
+
+    // Email fallback builder
+    function buildMailto(formData){
+      const name = formData.get('name') || "";
+      const phone = formData.get('phone') || "";
+      const region = formData.get('region') || "";
+      const task = formData.get('task') || "";
+
+      const subject = encodeURIComponent("Заявка с сайта СкайТехАлтай");
+      const body = encodeURIComponent(
+`Имя: ${name}
+Телефон: ${phone}
+Район: ${region}
+
+Задача:
+${task}
+
+Источник: лендинг
+Дата: ${new Date().toLocaleString()}`
+      );
+
+      return `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+    }
+
+    // Telegram send
+    async function sendToTelegram(message){
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      const payload = {
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message,
+        parse_mode: "HTML",
+        disable_web_page_preview: true
+      };
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type":"application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if(!res.ok){
+        const txt = await res.text().catch(()=> "");
+        throw new Error(`Telegram error: ${res.status} ${txt}`);
+      }
+      return res.json();
+    }
+
+    // Form submit
+    const form = $('leadForm');
+    const loader = $('loader');
+    const okToast = $('okToast');
+    const errToast = $('errToast');
+    const emailFallback = $('emailFallback');
+
+    form.addEventListener('input', () => {
+      const fd = new FormData(form);
+      emailFallback.href = buildMailto(fd);
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      okToast.style.display = "none";
+      errToast.style.display = "none";
+
+      const fd = new FormData(form);
+      const mailto = buildMailto(fd);
+      emailFallback.href = mailto;
+
+      const name = fd.get('name') || "";
+      const phone = fd.get('phone') || "";
+      const region = fd.get('region') || "";
+      const task = fd.get('task') || "";
+
+      // Message in Telegram (HTML-safe minimal)
+      const msg =
+`<b>Новая заявка (СкайТехАлтай)</b>
+<b>Имя:</b> ${escapeHtml(name)}
+<b>Телефон:</b> ${escapeHtml(phone)}
+<b>Район:</b> ${escapeHtml(region || "—")}
+<b>Задача:</b>
+${escapeHtml(task)}
+
+<b>Время:</b> ${escapeHtml(new Date().toLocaleString())}`;
+
+      // If token/chat_id not set — go email immediately
+      if(TELEGRAM_BOT_TOKEN.includes("PASTE_") || TELEGRAM_CHAT_ID.includes("PASTE_")){
+        window.location.href = mailto;
+        return;
+      }
+
+      try{
+        loader.style.display = "inline-block";
+        await sendToTelegram(msg);
+        loader.style.display = "none";
+        okToast.style.display = "block";
+        form.reset();
+        // rebuild fallback link after reset
+        emailFallback.href = buildMailto(new FormData(form));
+      }catch(err){
+        loader.style.display = "none";
+        errToast.style.display = "block";
+        // fallback to email
+        window.location.href = mailto;
+      }
+    });
+
+    // basic escape
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;");
+    }
+
+    // ====== Метрики (заготовки) ======
+    // 1) Яндекс.Метрика: вставишь сюда их скрипт.
+    // 2) GA4: вставишь сюда gtag.
+    // 3) Конверсии: можно триггерить событие при okToast.
+  </script>
+</body>
+</html>
